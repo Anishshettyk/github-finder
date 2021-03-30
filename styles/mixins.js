@@ -13,6 +13,11 @@ const mixins = {
     display: flex;
     justify-content: space-between;
   `,
+
+  flex: css`
+    display: flex;
+    align-items: center;
+  `,
 };
 
 export default mixins;

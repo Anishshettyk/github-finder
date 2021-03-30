@@ -34,10 +34,9 @@ const StyledContainer = styled.section`
       margin-top: 3vh;
       width: 100%;
       max-width: 500px;
-      background-color: ${colors.blue};
-      border-radius: 5px;
       font-size: 2rem;
-      color: ${colors.pinkWhite};
+      color: ${colors.purple};
+      background-color: ${colors.lightBlue};
       outline: 0;
       border: 0;
       padding: 10px 10px;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { getLimit } from '../utils/apis';
 import styled from 'styled-components';
 import { mixins, theme } from '../styles/';
-import milliToMin from '../utils/milliToMin';
 
 const { colors } = theme;
 
@@ -17,12 +16,10 @@ const StyledRateLimiterContainer = styled.div`
 
   p {
     line-height: 0;
-    font-size: 0.75rem;
-  }
-  .reset {
+    font-size: 1rem;
     display: inline-block;
     margin-top: 5px;
-    padding: 3px;
+    padding: 15px 10px;
     color: ${colors.lightBlue};
     border: 1px dashed ${colors.orange};
   }
@@ -46,7 +43,6 @@ const RateLimit = () => {
         {limiters?.remaining} <span>/</span> {limiters?.limit}
       </h2>
       <p>Requests Remaining.</p>
-      <span className="reset">Resets on {milliToMin(limiters?.reset)}</span>
     </StyledRateLimiterContainer>
   );
 };

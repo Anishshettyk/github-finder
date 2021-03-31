@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import theme from './theme';
-const { colors } = theme;
+const { colors, transition } = theme;
 
 const mixins = {
   flexCenter: css`
@@ -14,9 +14,19 @@ const mixins = {
     justify-content: space-between;
   `,
 
-  flex: css`
+  flexColumn: css`
     display: flex;
-    align-items: center;
+    flex-direction: column;
+  `,
+  button: css`
+    padding: 10px 20px;
+    border: 2px dashed ${colors.orange};
+    transition: ${transition};
+    &:hover,
+    &:focus {
+      border: 2px solid ${colors.orange};
+      color: ${colors.grey};
+    }
   `,
 };
 

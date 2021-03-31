@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Error, UserInfo } from '../components';
+import { Error, UserInfo, RateLimit } from '../components';
 import PropTypes from 'prop-types';
 import { getUserData } from '../utils/apis';
+import styled from 'styled-components';
+import { mixins } from '../styles/';
+import Link from 'next/link';
+
+const TopBanner = styled.section`
+  ${mixins.flexBetween}
+  a {
+    margin: 20px;
+  }
+`;
 
 const User = ({ query }) => {
   const userName = query?.id;
@@ -21,7 +31,24 @@ const User = ({ query }) => {
     getMeUserData(userName);
   }, []);
 
-  return <div>{error && error.error ? <Error /> : <UserInfo userData={userData} />}</div>;
+  return (
+    <div>
+      {error && error.error ? (
+        <Error />
+      ) : (
+        <>
+          <TopBanner>
+            <RateLimit />
+            <Link href="/">
+              <a>Find someone else</a>
+            </Link>
+          </TopBanner>
+
+          <UserInfo userData={userData} />
+        </>
+      )}
+    </div>
+  );
 };
 
 User.prototype = {
